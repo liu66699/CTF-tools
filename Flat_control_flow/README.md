@@ -6,14 +6,18 @@
 
 ### 使用方法
 
-环境要求：python3和angr
+环境要求：python2和angr
 
 例，需要去除平坦化的文件名为"`easyre`"，平坦化的函数地址为`0x401000`
-进入`flat_control_flow`文件夹，运行
+进入`flat_control_flow`，运行
 
 ```bash
-python3 deflat.py easyre 0x401000
+python deflat.py easyre 0x401000
 ```
+
+其中"`easyre`"已放入`flat_control_flow`目录
+
+去除平坦化后的文件在同一目录，文件名如"`easyre_recovered`"
 
 ### Description
 
