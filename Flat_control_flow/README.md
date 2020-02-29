@@ -2,7 +2,7 @@
 
 ## Flat_control_flow
 
-此脚本搬运于https://github.com/cq674350529/deflat，在此感谢
+> 原GitHub项目地址：https://github.com/cq674350529/deflat
 
 ### 使用方法
 
