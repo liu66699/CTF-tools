@@ -24,3 +24,7 @@ Save some scripts used by ctf here
 5. de4dot
 
    .NET程序解混淆器和解压缩器
+   
+7. DLL_required
+
+   解题时候曾缺少的dll

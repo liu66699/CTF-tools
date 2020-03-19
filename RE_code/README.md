@@ -18,3 +18,7 @@
 ## outside_main
 
 将C语言代码写到main函数外的例子
+
+## python_code
+
+python代码
