@@ -16,7 +16,7 @@ void rc4_crypt(unsigned char* Data, unsigned long Len_D, unsigned char* key, uns
 int base64_encode(const unsigned char* src, unsigned char* dst);//base64加密
 int base64_decode(const unsigned char* src, unsigned char* dst);//base64解密
 void base64_myen(char* src, char* dst, char* mytable);//base64自定义字符表加密
-void base64_myde(char* src, char* dst, char* mytable)//base64自定义字符表解密
+void base64_myde(char* src, char* dst, char* mytable);//base64自定义字符表解密
 
 
 /****************
