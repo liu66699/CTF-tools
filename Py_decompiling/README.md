@@ -1,3 +1,5 @@
+> 原帖地址：https://www.52pojie.cn/thread-1102117-1-1.html
+
 # Py_decompiling
 
 将python编译成的exe文件反编译为py文件
