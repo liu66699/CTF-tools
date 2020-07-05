@@ -1,6 +1,8 @@
 # CTF-tools
 Save some scripts used by ctf here
 
+仅作收集，如有侵权，联系eliauk55@foxmail.com删除
+
 # explanation：
 
 2. Flat_control_flow
@@ -15,7 +17,7 @@ Save some scripts used by ctf here
 
    + 自己写的RE加密C语言函数头文件
 
-   - 将代码写到main函数外的例子
+   - 乱七八糟代码
 
 5. Removing_fake_control_flow_script
 
@@ -28,3 +30,8 @@ Save some scripts used by ctf here
 7. DLL_required
 
    解题时候曾缺少的dll
+   
+8. CommonTools
+
+   常用CTF工具
+
