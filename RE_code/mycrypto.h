@@ -19,6 +19,8 @@ int base64_decode(const unsigned char* src, unsigned char* dst);//base64解密
 void base64_myen(char* src, char* dst, char* mytable);//base64自定义字符表加密
 void base64_myde(char* src, char* dst, char* mytable);//base64自定义字符表解密
 unsigned __int64 crc64decode(unsigned __int64 Dst);//crc64解密
+void crc8encode(char* str);		//crc8位加密
+void crc8decode(char * str);	//crc8位解密
 
 /****************
 以下是代码部分
@@ -359,6 +361,7 @@ void base64_myde(char* src, char* dst, char* mytable)
 CRC循环校验64位解密
 Dst为加密数据
 返回值为解密后的数据
+0xB0004B7679FA26B3ui64为异或的值需修改
 */
 unsigned __int64 crc64decode(unsigned __int64 Dst)
 {
@@ -373,5 +376,57 @@ unsigned __int64 crc64decode(unsigned __int64 Dst)
     return Dst;
 }
 
+/*
+CRC循环校验8位加密字符串
+0x31为异或的值可修改
+*/
+void crc8encode(char* str)
+{
+    unsigned char i, crc;
+    int j;
+    for (j = 0; j < strlen(str); ++j)
+    {
+        crc = str[j];
+        /* 数据往左移了8位，需要计算8次 */
+        for (i = 8; i > 0; --i)
+        {
+            if (crc & 0x80)  /* 判断最高位是否为1 */
+            {
+                /* 最高位为1，不需要异或，往左移一位，然后与0x31异或 */
+                /* 0x31(多项式：x8+x5+x4+1，100110001)，最高位不需要异或，直接去掉 */
+                crc = (crc << 1) ^ 0x31;
+            }
+            else
+            {
+                /* 最高位为0时，不需要异或，整体数据往左移一位 */
+                crc = (crc << 1);
+            }
+        }
+        str[j] = crc;
+    }
+}
+
+/*
+CRC循环校验8位解密字符串
+0x31为异或的值可修改
+*/
+void crc8decode(char * str)
+{
+    int i,j;
+    unsigned char dst;
+    for (i = 0; i < strlen(str); ++i)
+    {
+        dst = str[i];
+        for (j = 0; j < 8; ++j)
+        {
+            if (!(dst & 1))
+                dst /= 2;
+            else
+                dst = ((dst ^ 0x31u) >> 1) + 0x80u;
+        }
+        str[i] = dst;
+    }
+    
+}
 
 #endif // !_MYCRTPTO_
